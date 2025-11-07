@@ -1,1 +1,12 @@
-export default function Page() {\n  return (\n    <div className="space-y-4">\n      <h1 className="text-2xl font-bold">Newsletter</h1>\n      <p>Subscribe to our newsletter for updates.</p>\n      <form className="space-y-2 mt-4">\n        <input type="email" placeholder="Email" className="border p-2 w-full"/>\n        <button type="submit" className="bg-black text-white px-4 py-2">Subscribe</button>\n      </form>\n    </div>\n  );\n}\n
+export default function Page() {
+  return (
+    <div className="space-y-4">
+      <h1 className="text-2xl font-bold">Newsletter</h1>
+      <p>Subscribe to our newsletter for updates.</p>
+      <form className="space-y-2 mt-4">
+        <input type="email" placeholder="Email" className="border p-2 w-full" />
+        <button type="submit" className="bg-black text-white px-4 py-2">Subscribe</button>
+      </form>
+    </div>
+  );
+}
