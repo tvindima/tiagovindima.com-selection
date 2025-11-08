@@ -1,11 +1,14 @@
 'use client';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const images = ['/hero-1.jpg','/hero-2.jpg','/hero-3.jpg','/hero-4.jpg'];
-const colors = ['#f5f5f5','#e5e7eb','#d1d5db'];
+const colors = ['#c7d9e7','#f4e5d3','#d7e7d0','#e8d7e7'];
 
 export default function Page() {
   const [index, setIndex] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -14,26 +17,45 @@ export default function Page() {
     return () => clearInterval(interval);
   }, []);
 
-  const currentColor = colors[index % colors.length];
-
   return (
-    <div className="min-h-screen flex flex-col items-center justify-between" style={{ backgroundColor: currentColor }}>
-      <header className="w-full flex justify-between items-center p-4">
-        <div className="text-xl font-bold">Tiago Vindima</div>
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: colors[index % colors.length] }}>
+      {/* Header with hamburger and logo */}
+      <header className="flex justify-between items-center p-4">
+        <button aria-label="Open menu" onClick={() => setMenuOpen(!menuOpen)} className="space-y-1 focus:outline-none">
+          <span className="block w-6 h-0.5 bg-black"></span>
+          <span className="block w-6 h-0.5 bg-black"></span>
+          <span className="block w-6 h-0.5 bg-black"></span>
+        </button>
+        <h1 className="text-2xl font-bold">Tiago Vindima</h1>
+        <div className="w-6"></div>
       </header>
-      <main className="flex flex-col items-center mt-16">
-        <div className="w-80 h-80 relative">
-          <img src={images[index]} alt="Property" className="object-cover w-full h-full border-8 border-white" />
+      {/* Slide-out menu */}
+      {menuOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setMenuOpen(false)}>
+          <div className="bg-white w-64 h-full p-6" onClick={e => e.stopPropagation()}>
+            <nav className="space-y-4">
+              <Link href="/">Home</Link>
+              <Link href="/for-sale">For Sale</Link>
+              <Link href="/our-team">Our Team</Link>
+              <Link href="/contact">Contact</Link>
+              <Link href="/newsletter">Newsletter</Link>
+            </nav>
+          </div>
         </div>
-        <div className="mt-8">
-          <ul className="grid grid-cols-2 gap-4 text-center">
-            <li><a href="/for-sale" className="text-lg">For Sale</a></li>
-            <li><a href="/our-team" className="text-lg">Our Team</a></li>
-            <li><a href="/contact" className="text-lg">Contact</a></li>
-            <li><a href="/newsletter" className="text-lg">Newsletter</a></li>
-          </ul>
+      )}
+      {/* Hero */}
+      <main className="flex-grow flex items-center justify-center">
+        <div className="relative w-80 h-80 md:w-96 md:h-96 border-8 border-white">
+          <Image src={images[index]} alt="Hero image" fill style={{objectFit:'cover'}} />
         </div>
       </main>
+      {/* Bottom navigation always visible */}
+      <nav className="w-full py-4 bg-white flex justify-center space-x-8 text-sm">
+        <Link href="/for-sale">For Sale</Link>
+        <Link href="/our-team">Our Team</Link>
+        <Link href="/contact">Contact</Link>
+        <Link href="/newsletter">Newsletter</Link>
+      </nav>
     </div>
   );
 }
