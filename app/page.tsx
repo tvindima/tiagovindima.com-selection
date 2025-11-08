@@ -1,9 +1,8 @@
 'use client';
 import { useState, useEffect } from 'react';
 
-const images = ['/hero-1.jpg', '/hero-2.jpg', '/hero-3.jpg'];
-
-const colors = ['#f5f5f5', '#e5e7eb', '#d1d5db'];
+const images = ['/hero-1.jpg','/hero-2.jpg','/hero-3.jpg','/hero-4.jpg'];
+const colors = ['#f5f5f5','#e5e7eb','#d1d5db'];
 
 export default function Page() {
   const [index, setIndex] = useState(0);
