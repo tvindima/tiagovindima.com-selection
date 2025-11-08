@@ -1,5 +1,5 @@
 "use client";
-"use client";
+
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -65,7 +65,7 @@ export default function Page() {
               <a href="#" className="hover:underline">IN</a>
             </div>
             <Link href="/our-story" className="block border-t border-gray-700 pt-4 uppercase hover:underline">Our Story</Link>
-            <Link href="/blog-press" className="block border-t border-gray-700 pt-4 uppercase hover:underline">Blog &amp; Press</Link>
+            <Link href="/blog-press" className="block border-t border-gray-700 pt-4 uppercase hover:underline">Blog & Press</Link>
           </div>
         </div>
       )}
