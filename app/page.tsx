@@ -50,7 +50,8 @@ export default function Home() {
                 <Link href="/services/grand-potential" className="block uppercase py-2 hover:underline">Grand Potential</Link>
                 <Link href="/services/secret-listings" className="block uppercase py-2 hover:underline">Secret Listings</Link>
               </div>
-            )}
+ // Updated menu to match Fantastic Frank style
+           )}
             <Link href="/our-team" className="block uppercase border-b border-gray-700 py-3">Our Team</Link>
             <Link href="/work-with-us" className="block uppercase border-b border-gray-700 py-3">Work With Us</Link>
             {/* Our Offices with plus sign */}
