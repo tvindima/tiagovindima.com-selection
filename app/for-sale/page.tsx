@@ -1,5 +1,6 @@
 "use client";
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 const images = [
@@ -12,6 +13,7 @@ const images = [
 const properties = [
   {
     id: 1,
+    slug: 'property-one',
     title: 'Property One',
     location: 'Location One',
     rooms: '3 rooms',
@@ -21,6 +23,7 @@ const properties = [
   },
   {
     id: 2,
+    slug: 'property-two',
     title: 'Property Two',
     location: 'Location Two',
     rooms: '4 rooms',
@@ -30,6 +33,7 @@ const properties = [
   },
   {
     id: 3,
+    slug: 'property-three',
     title: 'Property Three',
     location: 'Location Three',
     rooms: '4 rooms',
@@ -39,6 +43,7 @@ const properties = [
   },
   {
     id: 4,
+    slug: 'property-four',
     title: 'Property Four',
     location: 'Location Four',
     rooms: '5 rooms',
@@ -73,21 +78,23 @@ export default function ForSale() {
         <h1 className="text-2xl uppercase mb-4">Properties for Sale</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {properties.map((property) => (
-            <div key={property.id} className="border border-gray-700 p-2">
-              <div className="relative aspect-video">
-                <Image
-                  src={property.image}
-                  alt={property.title}
-                  fill
-                  style={{ objectFit: 'cover' }}
-                />
+            <Link key={property.id} href={`/for-sale/${property.slug}`}>
+              <div className="border border-gray-700 p-2 cursor-pointer">
+                <div className="relative aspect-video">
+                  <Image
+                    src={property.image}
+                    alt={property.title}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                  />
+                </div>
+                <h2 className="mt-2 uppercase font-semibold">{property.title}</h2>
+                <p className="text-sm">
+                  {property.location} · {property.rooms} · {property.area}
+                </p>
+                <p className="text-sm">{property.price}</p>
               </div>
-              <h2 className="mt-2 uppercase font-semibold">{property.title}</h2>
-              <p className="text-sm">
-                {property.location} · {property.rooms} · {property.area}
-              </p>
-              <p className="text-sm">{property.price}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
