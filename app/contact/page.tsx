@@ -14,9 +14,9 @@ export default function Page() {
       <div className="space-y-4">
         <h2 className="text-xl font-semibold">Envie uma nova mensagem</h2>
         <form className="space-y-2">
-          <input type="text" placeholder="Name" className="border p-2 w-full" />
-          <input type="email" placeholder="Email" className="border p-2 w-full" />
-          <textarea placeholder="Message" className="border p-2 w-full"></textarea>
+          <input type="text" placeholder="Name" aria-label="Name" className="border p-2 w-full" />
+          <input type="email" placeholder="Email" aria-label="Email" className="border p-2 w-full" />
+          <textarea placeholder="Message" aria-label="Message" className="border p-2 w-full"></textarea>
           <button type="submit" className="bg-black text-white px-4 py-2">Send</button>
         </form>
       </div>

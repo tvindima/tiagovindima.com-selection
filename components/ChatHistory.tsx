@@ -97,7 +97,7 @@ export default function ChatHistory() {
         <p className="text-sm text-gray-300">Chat recente com Tiago Vindima</p>
       </div>
       
-      <div className="p-4 space-y-3 max-h-96 overflow-y-auto">
+      <div className="p-4 space-y-3 max-h-96 overflow-y-auto" role="log" aria-label="Chat history">
         {messages.map((message) => (
           <div
             key={message.id}
