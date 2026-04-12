@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 const images = [
   '/hero-1.jpg',
   '/hero-2.jpg',
-  '/hero-3.JPG',
+  '/hero-3.jpg',
   '/hero-4.jpg',
 ];
 
@@ -40,7 +40,7 @@ const properties = [
     rooms: '4 rooms',
     area: '180 m²',
     price: '€1,500,000',
-    image: '/hero-3.JPG',
+    image: '/hero-3.jpg',
   },
   {
     id: 4,
@@ -107,7 +107,7 @@ export default function ForSale() {
                 </div>
               )}
             </div>
-            <Link href="/contact-us">Contact Us</Link>
+            <Link href="/contact">Contact Us</Link>
             <Link href="/become-a-franchisee">Become a Franchisee</Link>
             <div className="flex space-x-4 pt-4 border-t border-gray-700">
               {/* Social icons */}

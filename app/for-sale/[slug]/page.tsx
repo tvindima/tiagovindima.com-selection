@@ -1,5 +1,6 @@
 "use client";
 
+import { use } from 'react';
 import Image from 'next/image';
 
 const properties = [
@@ -30,7 +31,7 @@ const properties = [
     rooms: '4 rooms',
     area: '180 m²',
     price: '€1,500,000',
-    image: '/hero-3.JPG',
+    image: '/hero-3.jpg',
     description: 'Description for Property Three.',
   },
   {
@@ -45,8 +46,9 @@ const properties = [
   },
 ];
 
-export default function PropertyPage({ params }) {
-  const property = properties.find((p) => p.slug === params.slug);
+export default function PropertyPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
+  const property = properties.find((p) => p.slug === slug);
 
   if (!property) {
     return (
