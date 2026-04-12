@@ -4,7 +4,7 @@ export default function Page() {
       <h1 className="text-2xl font-bold">Contact Us</h1>
       <p>Email: <a href="mailto:tv@tiagovindima.com" className="text-blue-500">tv@tiagovindima.com</a></p>
       <p>Phone: <a href="tel:+351910377268" className="text-blue-500">+351 910 377 268</a></p>
-      <form className="space-y-2 mt-4">
+      <form className="space-y-2 mt-4" onSubmit={(e) => { e.preventDefault(); /* TODO: implementar envio do formulário */ }}>
         <input type="text" placeholder="Name" className="border p-2 w-full" />
         <input type="email" placeholder="Email" className="border p-2 w-full" />
         <textarea placeholder="Message" className="border p-2 w-full"></textarea>
